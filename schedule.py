@@ -23,6 +23,17 @@ class Schedule():
             course['coinstructors'] = [tuple(f) for f in course['coinstructors']]
         self.courses = tuple(courses)  # making it a tuple means it is immutable
 
+    def title(self,phrase):
+        ''' title returns the courses that contain the search phrase'''
+        return Schedule([course for course in self.courses if phrase.lower() in course['name'].lower()])
+
+    def status(self,status,consent):
+        ''' status returns courses with a particular enrollment status'''
+        if consent:
+            return Schedule([course for course in self.courses if status.lower() in course['status_text'].lower() and "consent" in course['status_text'].lower()])
+        else:
+            return Schedule([course for course in self.courses if status.lower() in course['status_text'].lower() and "consent" not in course['status_text'].lower()])
+    
     def lastname(self,names):
         ''' lastname returns the courses by a particular instructor last name'''
         return Schedule([course for course in self.courses if course['instructor'][1] in names])

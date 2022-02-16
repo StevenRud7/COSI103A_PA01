@@ -19,7 +19,7 @@ instructor (filter by instructor)
 subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
-timeofday (filter by day and time, e.g. meets at 11 on Wed)
+status (filter by current course status, e.g. Closed, or Open Consent Req.)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -47,6 +47,16 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
+        elif command in ['title']:
+            title = input("enter a title:")
+            schedule = schedule.title(title)
+        elif command in ['status']:
+            status = input("enter a status (open/closed):")
+            consent = input("consent required? (yes/no):")
+            if consent == "yes":
+                schedule = schedule.status(status, True)
+            else:
+                schedule = schedule.status(status, False)
         else:
             print('command',command,'is not supported')
             continue
