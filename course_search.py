@@ -51,6 +51,9 @@ def topmenu():
         elif command in ['title']:
             title = input("enter a title:")
             schedule = schedule.title(title)
+        elif command in ['description']:
+            phrase = input("enter a phrase:")
+            schedule = schedule.description(phrase)
         elif command in ['status']:
             status = input("enter a status (open/closed):")
             consent = input("consent required? (yes/no):")
