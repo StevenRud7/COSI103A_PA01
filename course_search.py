@@ -56,9 +56,9 @@ def topmenu():
         elif command in ['description']:
             phrase = input("enter a phrase:")
             schedule = schedule.description(phrase)
-        elif command in ['l','limit']:
-            lim = input("enter the limit of enrollment for a course: ")
-            schedule = schedule.limit(lim)
+        elif command in ['de','details']:
+            det = input("enter a detail of a course: ")
+            schedule = schedule.details(det)
         elif command in ['status']:
             status = input("enter a status (open/closed):")
             consent = input("consent required? (yes/no):")
