@@ -21,6 +21,7 @@ subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
 status (filter by current course status, e.g. Closed, or Open Consent Req.)
+independent study (filter by whether or not a course is an independent study)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -69,6 +70,12 @@ def topmenu():
             else:
                 query = input("Please enter the instructor's lastname:")
                 schedule = schedule.lastname(query)
+        elif command in ['independent study']:
+            is_independent_study = input("independent study? (y/n):")
+            if is_independent_study == "y":
+                schedule = schedule.independent_study(True)
+            elif is_independent_study == "n":
+                schedule = schedule.independent_study(False)
         else:
             print('command',command,'is not supported')
             continue
@@ -88,4 +95,3 @@ def print_course(course):
 
 if __name__ == '__main__':
     topmenu()
-

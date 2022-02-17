@@ -50,6 +50,10 @@ class Schedule():
         ''' enrolled filters for enrollment numbers in the list of vals'''
         return Schedule([course for course in self.courses if course['enrolled'] in vals])
 
+    def independent_study(self,independent_study):
+        ''' subject filters by whether or not independent study '''
+        return Schedule([course for course in self.courses if course["independent_study"] == independent_study])
+
     def subject(self,subjects):
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if course['subject'] in subjects])
