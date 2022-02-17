@@ -49,6 +49,10 @@ class Schedule():
     def enrolled(self,vals):
         ''' enrolled filters for enrollment numbers in the list of vals'''
         return Schedule([course for course in self.courses if course['enrolled'] in vals])
+    
+    def limit(self,lim):
+        ''' returns the courses that have a greater than or equal to inputted limit amount of students able to enroll'''
+        return Schedule([course for course in self.courses if course['limit']>=lim])
 
     def independent_study(self,independent_study):
         ''' subject filters by whether or not independent study '''
@@ -68,4 +72,7 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
+    
+    def num(self,vals):
+        return Schedule([course for course in self.courses if course['coursenum'] in vals])
  

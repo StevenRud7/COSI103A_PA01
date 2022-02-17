@@ -22,6 +22,7 @@ title  (filter by phrase in title)
 description (filter by phrase in description)
 status (filter by current course status, e.g. Closed, or Open Consent Req.)
 independent study (filter by whether or not a course is an independent study)
+coursenum (filter by coursesnum, e.g 240f)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -55,6 +56,9 @@ def topmenu():
         elif command in ['description']:
             phrase = input("enter a phrase:")
             schedule = schedule.description(phrase)
+        elif command in ['l','limit']:
+            lim = input("enter the limit of enrollment for a course: ")
+            schedule = schedule.limit(lim)
         elif command in ['status']:
             status = input("enter a status (open/closed):")
             consent = input("consent required? (yes/no):")
@@ -76,6 +80,9 @@ def topmenu():
                 schedule = schedule.independent_study(True)
             elif is_independent_study == "n":
                 schedule = schedule.independent_study(False)
+        elif command in ['num']:
+            query = input("Please enter the courses of the day you want to query:")
+            schedule = schedule.num(query)
         else:
             print('command',command,'is not supported')
             continue
