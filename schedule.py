@@ -49,6 +49,10 @@ class Schedule():
     def enrolled(self,vals):
         ''' enrolled filters for enrollment numbers in the list of vals'''
         return Schedule([course for course in self.courses if course['enrolled'] in vals])
+    
+    def limit(self,lim):
+        ''' returns the courses that have a greater than or equal to inputted limit amount of students able to enroll'''
+        return Schedule([course for course in self.courses if course['limit']>=lim])
 
     def subject(self,subjects):
         ''' subject filters the courses by subject '''
