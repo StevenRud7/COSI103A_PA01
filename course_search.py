@@ -21,6 +21,7 @@ subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
 status (filter by current course status, e.g. Closed, or Open Consent Req.)
+coursenum (filter by coursesnum, e.g 240f)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -66,6 +67,9 @@ def topmenu():
             else:
                 query = input("Please enter the instructor's lastname:")
                 schedule = schedule.lastname(query)
+        elif command in ['num']:
+            query = input("Please enter the courses of the day you want to query:")
+            schedule = schedule.num(query)
         else:
             print('command',command,'is not supported')
             continue

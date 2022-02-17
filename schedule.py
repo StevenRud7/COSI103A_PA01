@@ -60,4 +60,7 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
+    # return the courses of this day
+    def num(self,vals):
+        return Schedule([course for course in self.courses if course['coursenum'] in vals])
  
