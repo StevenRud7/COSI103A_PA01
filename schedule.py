@@ -33,7 +33,7 @@ class Schedule():
             return Schedule([course for course in self.courses if status.lower() in course['status_text'].lower() and "consent" in course['status_text'].lower()])
         else:
             return Schedule([course for course in self.courses if status.lower() in course['status_text'].lower() and "consent" not in course['status_text'].lower()])
-    
+
     def lastname(self,names):
         ''' lastname returns the courses by a particular instructor last name'''
         return Schedule([course for course in self.courses if course['instructor'][1] in names])
@@ -49,7 +49,7 @@ class Schedule():
     def enrolled(self,vals):
         ''' enrolled filters for enrollment numbers in the list of vals'''
         return Schedule([course for course in self.courses if course['enrolled'] in vals])
-    
+
     def limit(self,lim):
         ''' returns the courses that have a greater than or equal to inputted limit amount of students able to enroll'''
         return Schedule([course for course in self.courses if course['limit']>=lim])
@@ -72,7 +72,6 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
-    
+
     def num(self,vals):
         return Schedule([course for course in self.courses if course['coursenum'] in vals])
- 
