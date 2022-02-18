@@ -58,6 +58,7 @@ def topmenu():
             det = input("enter a specifc detail of a course: ")
             schedule = schedule.details(det)
         elif command in ['status']:
+            # searches for courses with the desired status
             status = input("enter a status (open/closed):")
             consent = input("consent required? (yes/no):")
             if consent == "yes":
