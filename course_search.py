@@ -72,7 +72,7 @@ def topmenu():
             else:
                 query = input("Please enter the instructor's lastname:")
                 schedule = schedule.lastname(query)
-        elif command in ['independent study']:
+        elif command in ['is', 'independent study']:
             is_independent_study = input("independent study? (y/n):")
             if is_independent_study == "y":
                 schedule = schedule.independent_study(True)
