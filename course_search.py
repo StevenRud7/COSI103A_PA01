@@ -55,7 +55,7 @@ def topmenu():
             phrase = input("enter a phrase:")
             schedule = schedule.description(phrase)
         elif command in ['de','details']:
-            det = input("enter a detail of a course: ")
+            det = input("enter a specifc detail of a course: ")
             schedule = schedule.details(det)
         elif command in ['status']:
             status = input("enter a status (open/closed):")
